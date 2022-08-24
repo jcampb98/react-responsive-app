@@ -9,14 +9,14 @@ import Services from './components/Services'
 
 export default function App() {
   return (
-    <>
-    <ScrollToTop />
-    <Navbar />
-    <Hero />
-    <Services />
-    <Recommend />
-    <Testimonial />
-    <Footer />
-    </>
+    <div>
+      <ScrollToTop />
+      <Navbar />
+      <Hero />
+      <Services />
+      <Recommend />
+      <Testimonial />
+      <Footer />
+    </div>
   )
 }
