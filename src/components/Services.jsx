@@ -30,8 +30,45 @@ export default function Services() {
   ];
   
   return (
-    <div>Services</div>
+    <Section id="services">
+      {
+        data.map((service) => {
+          return(
+            <div className="service">
+              <div className="icon">
+                <img src={ service.icon } alt="an icon" />
+              </div>
+              <h3>{ service.title }</h3>
+              <p>{ service.subTitle }</p>
+            </div>
+          )
+        })
+      }
+    </Section>
   )
 }
 
-const Section = styled.section``;
+const Section = styled.section`
+  padding: 5rem 0;
+  display: grid;
+  grid-templated-columns: repeat(4, 1fr);
+  gap: 1rem;
+  .service {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: #66b2b2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: 0.3s ease-in-out;
+    &:hover {
+      transform: translateX(0.4rem) translateY(-1rem);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .icon {
+      img {
+        height: 2.4rem;
+      }
+    }
+  }
+`;
