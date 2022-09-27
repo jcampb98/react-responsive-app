@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'; //this imports the styled library which is used to style the navbar of the app
 import logo from '../assets/logo.png';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { VscChromeClose } from 'react-icons/vsc';
 
 export default function Navbar() {
+  const [navState, setNavState] = useState(false);
+  
   return (
     <>
       <Nav>
-        <div className="brand">
-          <div className="container">
-            <img src={logo} alt="Logo of the website" className="logo-brand" />
-            Splash Travel
+          <div className="brand">
+            <div className="container">
+              <img src={logo} alt="Logo of the website" className="logo-brand" />
+              Splash Travel
+            </div>
+            <div className="toggle">
+              {navState ? (
+                <VscChromeClose onClick={() => setNavState(false)} />
+              ) : (
+                <GiHamburgerMenu onClick={() => setNavState(true)} />
+              )}
+            </div>
           </div>
-          <div className="toggle"></div>
+          
           <ul>
             <li>
               <a href="#home">Home</a>
@@ -25,9 +37,8 @@ export default function Navbar() {
             <li>
               <a href="#testimonial">Testimonials</a>
             </li>
-            <button>Connect</button>
           </ul>
-        </div>
+          <button>Connect</button>
       </Nav>
     </>
   )
@@ -98,5 +109,23 @@ const Nav = styled.nav`
   .logo-brand {
     height: 64px;
     width: 64px;
+  }
+
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .toggle {
+        display: block;
+      }
+    }
+    ul {
+      display: none;
+    }
+    button {
+      display: none;
+    }
   }
 `;

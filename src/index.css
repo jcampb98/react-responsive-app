@@ -14,3 +14,12 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: #004c4c;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #006666;
+}
