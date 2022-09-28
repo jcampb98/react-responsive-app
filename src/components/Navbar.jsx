@@ -40,6 +40,30 @@ export default function Navbar() {
           </ul>
           <button>Connect</button>
       </Nav>
+      <ResponsiveNav state={navState}>
+        <ul>
+          <li>
+            <a href="#home" onClick={() => setNavState(false)}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#services" onClick={() => setNavState(false)}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#recommend" onClick={() => setNavState(false)}>
+              Places
+            </a>
+          </li>
+          <li>
+            <a href="#testimonials" onClick={() => setNavState(false)}>
+              Testimonials
+            </a>
+          </li>
+        </ul>
+      </ResponsiveNav>
     </>
   )
 }
@@ -126,6 +150,43 @@ const Nav = styled.nav`
     }
     button {
       display: none;
+    }
+  }
+`;
+
+const ResponsiveNav = styled.div`
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  top: ${({ state }) => (state ? "50px" : "-400px")};
+  background: white;
+  height: 30vh;
+  width: 100%;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  ul {
+    list-style-type: none;
+    width: 100%;
+    li {
+      width: 100%;
+      margin: 1rem 0;
+      margin-left: 2rem;
+
+      a {
+        text-decoration: none;
+        color: #004c4c;
+        font-size: 1.2rem;
+        transition: 0.1s ease-in-out;
+        &:hover {
+          color: #66b2b2;
+        }
+      }
+      &:first-of-type {
+        a {
+          color: #004c4c;
+          font-weight: 900;
+        }
+      }
     }
   }
 `;
